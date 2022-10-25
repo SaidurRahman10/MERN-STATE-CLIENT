@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import hero1 from '../../img/hero1.png'
+import brand1 from '../../img/brand1.png'
+import brand2 from '../../img/brand2.png'
+import brand3 from '../../img/brand3.png'
+import brand4 from '../../img/brand4.png'
+import brand5 from '../../img/brand5.png'
+import brand6 from '../../img/brand6.png'
 
 
 
@@ -36,7 +42,17 @@ const Home = () => {
 
 
          
-
+        <div>
+            <h2 className='text-center text-2xl font-bold'>Trusted by the world’s best Brand</h2>
+            <div className='flex justify-between mt-8 mx-4'>
+                <img className='h-8' src={brand2} alt="" />
+                <img className='h-8' src={brand3} alt="" />
+                <img className='h-8' src={brand4} alt="" />
+                <img className='h-8' src={brand1} alt="" />
+                <img className='h-8' src={brand5} alt="" />
+                <img className='h-8' src={brand6} alt="" />
+            </div>
+        </div>
 
 
         </div>
