@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 
@@ -23,16 +21,17 @@ const Header = () => {
 
             <div className=" hidden md:block">
             <a className="w-full font-bold text-xl sm:text-3xl block ">
-              <span className="text-orange-300"> Quiz. </span> Jon
+              <span className="text-orange-300"> MARN.</span> State
             </a>
           </div>
 
             <div className=" flex  flex-col md:flex-row gap-6  bg-orange-300 md:bg-transparent p-10 md:p-0">
                 <Link className='font-bold hover:text-blue-500 text-orange-400 border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center ' to='/'>Home</Link>
-                <Link className='font-bold hover:text-blue-500 text-orange-400 border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center ' to='/topics'>Topics</Link>
+                <Link className='font-bold hover:text-blue-500 text-orange-400 border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center ' to='/course'>Courses</Link>
             
-                <Link className='font-bold hover:text-blue-500 text-orange-400 border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center ' to='/statistics'>Statistics</Link>
-                <Link className='font-bold hover:text-blue-500 text-orange-400 border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center ' to='/blog'>Blog</Link>   
+                <Link className='font-bold hover:text-blue-500 text-orange-400 border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center ' to='/blog'>Blog</Link>
+                <Link className='font-bold hover:text-blue-500 text-orange-400 border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center ' to='/faq'>FAQ</Link>   
+                <Link className='font-bold hover:text-blue-500 text-orange-400 border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center ' to='/'>USER</Link>   
             </div>
 
 
