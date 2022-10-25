@@ -21,9 +21,7 @@ const Blog = () => {
       <div className="flex flex-wrap -mx-4">
          <div className="w-full px-4">
             <div className="text-center mx-auto mb-[60px] lg:mb-20 max-w-[520px]">
-               <span className="font-semibold text-lg text-primary mb-2 block">
-               FAQ
-               </span>
+              
                <h2
                   className="
                   font-bold
@@ -90,16 +88,18 @@ const Blog = () => {
                   </div>
                   <div className="w-full">
                      <h4 className="text-lg font-semibold text-black">
-                     What is the purpose of react router ?
+                     WHAT IS CORS ?
                      </h4>
                   </div>
                </button>
                <div x-show="openFaq1" className="faq-content pl-[62px]">
                   <p className="text-base text-body-color leading-relaxed py-3">
-                  Routing is a process in which a user is directed to different pages based on their action or request. ReactJS Router is mainly used for developing Single Page Web Applications. React Router is used to define multiple routes in the application. When a user types a specific URL into the browser, and if this URL path matches any 'route' inside the router file, the user will be redirected to that particular route.
+                  Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.
+
                   </p>
                </div>
             </div>
+                
             <div
                className="
                single-faq
@@ -148,13 +148,27 @@ const Blog = () => {
                   </div>
                   <div className="w-full">
                      <h4 className="text-lg font-semibold text-black">
-                        How does Context API Work ?
+                     Why we using firebase? What other options do we have to implement authentication?
                      </h4>
                   </div>
                </button>
                <div x-show="openFaq1" className="faq-content pl-[62px]">
                   <p className="text-base text-body-color leading-relaxed py-3">
-                  Context API allows  to share information to any component, by storing it in a central place and allowing access to any component that requests it (usually you are only able to pass data from parent to child via props).
+                  Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more. <br /> <br />
+
+               <h1 className='font-bold'>We have other options do we have to implement authentication</h1> 
+
+
+
+               STYTCH,
+               Ory,
+               Supabase,
+               Okta,
+               PingIdentity,
+               Keycloa,
+               Frontegg,
+               Authress and etc.
+
                   </p>
                </div>
             </div>
@@ -208,13 +222,73 @@ const Blog = () => {
                   
                   <div className="w-full">
                      <h4 className="text-lg font-semibold text-black">
-                     What is use REF IN React?
+                     How does the private route work?
                      </h4>
                   </div>
                </button>
                <div x-show="openFaq6" className="faq-content pl-[62px]">
                   <p className="text-base text-body-color leading-relaxed py-3">
-                  The useRef Hook allows you to persist values between renders. It can be used to store a mutable value that does not cause a re-render when updated. It can be used to access a DOM element directly.
+                  The react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.
+                  </p>
+               </div>
+            </div>
+            <div
+               className="
+               single-faq
+               w-full
+               bg-white
+               border border-[#F3F4FE]
+               rounded-lg
+               p-4
+               sm:p-8
+               lg:px-6
+               xl:px-8
+               mb-8
+               "
+               >
+               <button
+                  className="faq-btn flex w-full text-left"
+                 
+                  >
+                  <div
+                     className="
+                     w-full
+                     max-w-[40px]
+                     h-10
+                     flex
+                     items-center
+                     justify-center
+                     rounded-lg
+                     bg-primary
+                     text-primary
+                     bg-opacity-5
+                     mr-5
+                     "
+                     >
+                     <svg
+                        width="17"
+                        height="10"
+                        viewBox="0 0 17 10"
+                        className="fill-current icon"
+                        >
+                        <path
+                           d="M7.28687 8.43257L7.28679 8.43265L7.29496 8.43985C7.62576 8.73124 8.02464 8.86001 8.41472 8.86001C8.83092 8.86001 9.22376 8.69083 9.53447 8.41713L9.53454 8.41721L9.54184 8.41052L15.7631 2.70784L15.7691 2.70231L15.7749 2.69659C16.0981 2.38028 16.1985 1.80579 15.7981 1.41393C15.4803 1.1028 14.9167 1.00854 14.5249 1.38489L8.41472 7.00806L2.29995 1.38063L2.29151 1.37286L2.28271 1.36548C1.93092 1.07036 1.38469 1.06804 1.03129 1.41393L1.01755 1.42738L1.00488 1.44184C0.69687 1.79355 0.695778 2.34549 1.0545 2.69659L1.05999 2.70196L1.06565 2.70717L7.28687 8.43257Z"
+                           fill="#3056D3"
+                           stroke="#3056D3"
+                           />
+                     </svg>
+                  </div>
+                
+                  
+                  <div className="w-full">
+                     <h4 className="text-lg font-semibold text-black">
+                     What is Node? How does Node work?
+                     </h4>
+                  </div>
+               </button>
+               <div x-show="openFaq6" className="faq-content pl-[62px]">
+                  <p className="text-base text-body-color leading-relaxed py-3">
+                  Node. js (Node) is an open source development platform for executing JavaScript code server-side. It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node. js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.
                   </p>
                </div>
             </div>

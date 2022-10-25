@@ -5,6 +5,8 @@ import Courses from '../../Components/Courses/Courses';
 import ErrorPage from '../../Components/ErrorPage/ErrorPage';
 import FAQ from '../../Components/FAQ/FAQ';
 import Home from '../../Components/Home/Home';
+import Login from '../../Components/Login/Login';
+import Registration from '../../Components/Login/Registration';
 import Main from '../../layout/Main';
 
 
@@ -13,7 +15,9 @@ import Main from '../../layout/Main';
             {path:'/',element:<Home></Home>},
             {path:'/course',element:<Courses></Courses>},
             {path:'/blog',element:<Blog></Blog>},
-            {path:'/faq',element:<FAQ></FAQ>}
+            {path:'/faq',element:<FAQ></FAQ>},
+            {path:'/login',element:<Login></Login>},
+            {path:'/register',element:<Registration></Registration>}
         ]},
         {path:'*', element:<ErrorPage></ErrorPage>}
     ])
