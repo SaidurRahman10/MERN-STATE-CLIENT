@@ -42,9 +42,9 @@ const Home = () => {
 
 
          
-        <div>
             <h2 className='text-center text-2xl font-bold'>Trusted by the world’s best Brand</h2>
-            <div className='flex justify-between mt-8 mx-4'>
+        <div className='flex justify-center '>
+            <div className='grid grid-cols-2 lg:grid-cols-6 md:grid-cols-3 gap-10 mt-8 mx-4 '>
                 <img className='h-8' src={brand2} alt="" />
                 <img className='h-8' src={brand3} alt="" />
                 <img className='h-8' src={brand4} alt="" />
