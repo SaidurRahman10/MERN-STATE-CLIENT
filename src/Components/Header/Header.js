@@ -56,7 +56,7 @@ const Header = () => {
             </Link>
             <Link
               className="font-bold hover:text-blue-500 text-black md:text-white border border-white bg-white md:bg-transparent md:border-0  rounded-lg text-center "
-              to="/course"
+              to="/courses"
             >
               Courses
             </Link>

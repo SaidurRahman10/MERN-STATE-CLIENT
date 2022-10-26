@@ -1,6 +1,8 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Blog from '../../Components/Blog/Blog';
+import Course from '../../Components/Courses/Course';
+import CourseDetails from '../../Components/Courses/CourseDetails';
 import Courses from '../../Components/Courses/Courses';
 import ErrorPage from '../../Components/ErrorPage/ErrorPage';
 import FAQ from '../../Components/FAQ/FAQ';
@@ -13,7 +15,14 @@ import Main from '../../layout/Main';
   export const route = createBrowserRouter([
         {path:'/',element:<Main></Main>,children:[
             {path:'/',element:<Home></Home>},
-            {path:'/course',element:<Courses></Courses>},
+           
+            {path:'/courses',  
+            loader:()=> fetch('https://mern-state-server.vercel.app/course'),     
+            element:<Courses></Courses>,children:[
+                {path:'/courses/course/:id',loader:({params})=> fetch(`https://mern-state-server.vercel.app/course/${params.id}`) ,element:<Course></Course>}
+            ]
+        },
+            {path:'details/:id',loader:({params})=> fetch(`https://mern-state-server.vercel.app/course/${params.id}`), element:<CourseDetails></CourseDetails> },
             {path:'/blog',element:<Blog></Blog>},
             {path:'/faq',element:<FAQ></FAQ>},
             {path:'/login',element:<Login></Login>},

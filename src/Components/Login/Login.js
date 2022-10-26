@@ -120,12 +120,12 @@ const Login = () => {
  <div>
 
  </div>
- <div onClick={handelGoogleSignIn} className='flex gap-2   bg-slate-100'>
- <button className='flex font-bold mt-2 border py-2 '> <FaGoogle className='w-10 h-8 mx-5  text-center'></FaGoogle> <h1 className='mt-1'> Sign in with Google  </h1></button>
+ <div onClick={handelGoogleSignIn} className='flex gap-2   bg-slate-100 rounded-xl'>
+ <button className='flex font-bold mt-2  py-2 '> <FaGoogle className='w-10 h-8 mx-5  text-center'></FaGoogle> <h1 className='mt-1'> Sign in with Google  </h1></button>
   </div>
 <br />
 
-  <div  onClick={handelGithubSignIn} className='flex gap-2 bg-slate-100 '>
+  <div  onClick={handelGithubSignIn} className='flex gap-2 bg-slate-100 rounded-xl '>
  <button className='flex font-bold mt-2 py-2  '> <FaGithub className='w-10 h-8 mx-5'></FaGithub> <h1 className='mt-1'> Sign in with Github</h1></button>
   </div>
    
