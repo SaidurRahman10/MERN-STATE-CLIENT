@@ -79,9 +79,9 @@ const Header = () => {
             <div>    
               { 
           user?.photoURL ? 
-           <img className=" rounded-full" style={{height:'50px'}}  src={user.photoURL} alt="Saidur Rahman" />
+           <img className=" rounded-full" style={{height:'50px'}}  src={user?.photoURL} alt={user?.displayName} title={user?.displayName} />
             :
-            <FaUser className="mt-2 w-10 h-8"></FaUser>
+            <FaUser className="mt-2 w-10 h-8" title={user?.displayName}></FaUser>
             
 
       

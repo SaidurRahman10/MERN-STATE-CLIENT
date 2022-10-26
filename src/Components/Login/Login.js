@@ -3,14 +3,15 @@ import { Link } from 'react-router-dom';
 import { myContext } from '../../AuthProvider/AuthProvider';
 import login1 from '../../img/login1.png'
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 
 const Login = () => {
-    const {logIn,googleSignIn} = useContext(myContext)
+    const {logIn,googleSignIn,githubSignIn} = useContext(myContext)
 
     const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider();
     const handelSubmit = (event) =>{
         event.preventDefault();
 
@@ -40,13 +41,16 @@ const Login = () => {
         })
         .catch(error=> console.error(error))
     }
-    const handelGoogleSignOut = () =>{
-        googleSignIn(googleProvider)
-        .then(()=>{})
-        .catch(error =>console.error(error))
-    }
+    
     const handelGithubSignIn = () =>{
-
+        githubSignIn(githubProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+           
+    
+        })
+        .catch(error=> console.error(error))
     }
 
     return (
