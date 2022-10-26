@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { myContext } from '../../AuthProvider/AuthProvider';
 import login1 from '../../img/login1.png'
@@ -8,6 +8,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
+    const [error, setError] = useState('')
     const {logIn,googleSignIn,githubSignIn} = useContext(myContext)
 
     const googleProvider = new GoogleAuthProvider()
@@ -27,7 +28,10 @@ const Login = () => {
             form.reset();
 
         })
-        .catch(error=> console.error(error))
+        .catch(error=>{
+            console.error(error)
+            setError(error.message)
+           })
 
     }
     const handelGoogleSignIn = () =>{
@@ -39,7 +43,10 @@ const Login = () => {
            
     
         })
-        .catch(error=> console.error(error))
+        .catch(error=>{
+             console.error(error)
+             setError(error.message)
+            })
     }
     
     const handelGithubSignIn = () =>{
@@ -50,7 +57,10 @@ const Login = () => {
            
     
         })
-        .catch(error=> console.error(error))
+        .catch(error=>{
+            console.error(error)
+            setError(error.message)
+           })
     }
 
     return (
@@ -98,6 +108,7 @@ const Login = () => {
     placeholder="Password" />
 </div>
 <h1 className='font-bold text-xs mb-10'>New in this page? <Link className='text-blue-600' to='/register'>Create an account</Link></h1>
+<h1 className='my-2 text-red-600 font-bold'>{error}</h1>
 <button type="submit" className="
  text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Submit</button>
 </form>
