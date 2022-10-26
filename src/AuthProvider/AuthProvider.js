@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 
 import { app } from "../Firebase/Firebase.config";
 
@@ -31,12 +31,16 @@ const AuthProvider = ({children}) => {
             }
         },[])
 
+        const logOut = () =>{
+            return signOut(auth)
+        }
 
 
 
-    const allInfo = {user,createUser,logIn, googleSignIn}
+
+    const allInfo = {user,createUser,logIn, googleSignIn,logOut}
   return (
-  <myContext.Provider value={allInfo}>,
+  <myContext.Provider value={allInfo}>
     {children}
   </myContext.Provider>
   );

@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Bars3Icon,
   XMarkIcon,
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
+import { FaUser } from 'react-icons/fa';
+
 
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { myContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
+  const {user,logOut} = useContext(myContext);
+  const handelLogOut = () =>{
+    logOut()
+    .then(result =>{})
+    .catch(error => console.error(error))
+}
+
+
+
   const [open, setOpen] = useState(false);
   return (
     <div className="shadow-md  text-black md:text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800  rounded-lg  px-5 py-2.5 text-center ">
@@ -63,9 +75,28 @@ const Header = () => {
             </Link>
             
           </div>
-          <Link to='/login'>
+          <div className="flex gap-6">
+            <div>    
+              { 
+          user?.photoURL ? 
+           <img className=" rounded-full" style={{height:'50px'}}  src={user.photoURL} alt="Saidur Rahman" />
+            :
+            <FaUser className="mt-2 w-10 h-8"></FaUser>
+            
+
+      
+              }
+              </div>
+        <div className="mt-1">
+        { user?.uid ? 
+            <button onClick={handelLogOut} type="button" className=" hidden md:block text-black md:text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-8 py-2 text-center mr-2 mb-2">Log Out</button>
+            :
+        <Link to='/login'>
             <button type="button" className=" hidden md:block text-black md:text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-8 py-2 text-center mr-2 mb-2">Log In</button>
             </Link>
+            }
+        </div>
+          </div>
         </ul>
       </nav>
     </div>

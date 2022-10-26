@@ -40,6 +40,14 @@ const Login = () => {
         })
         .catch(error=> console.error(error))
     }
+    const handelGoogleSignOut = () =>{
+        googleSignIn(googleProvider)
+        .then(()=>{})
+        .catch(error =>console.error(error))
+    }
+    const handelGithubSignIn = () =>{
+
+    }
 
     return (
         <div className='mx-12 mt-5 '>
@@ -94,13 +102,19 @@ const Login = () => {
     <div className='text-center'>Or</div>
     <div className='mt-2'><hr /><hr /></div>
  </div>
- <button onClick={handelGoogleSignIn} className='flex gap-2 flex-col  '>
- <button className='flex font-bold mt-2 border py-2 bg-slate-100'> <FaGoogle className='w-10 h-8 mx-5'></FaGoogle> <h1 className='mt-1'> Sign in with Google  </h1></button>
- 
- <div className='flex font-bold mt-2 py-2 px-3 bg-slate-100'> <FaGithub className='w-10 h-8 mx-5'></FaGithub> <h1 className='mt-1'> Sign in with Github</h1></div>
-  
+ <div>
+
+ </div>
+ <div onClick={handelGoogleSignIn} className='flex gap-2   bg-slate-100'>
+ <button className='flex font-bold mt-2 border py-2 '> <FaGoogle className='w-10 h-8 mx-5  text-center'></FaGoogle> <h1 className='mt-1'> Sign in with Google  </h1></button>
+  </div>
+<br />
+
+  <div  onClick={handelGithubSignIn} className='flex gap-2 bg-slate-100 '>
+ <button className='flex font-bold mt-2 py-2  '> <FaGithub className='w-10 h-8 mx-5'></FaGithub> <h1 className='mt-1'> Sign in with Github</h1></button>
+  </div>
    
- </button>
+
 </div>
  
         <div className='flex justify-center items-center'>
