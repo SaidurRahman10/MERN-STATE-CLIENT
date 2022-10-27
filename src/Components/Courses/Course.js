@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Course = () => {
   const courses = useLoaderData();
-  const { id, name, title, rating, reviews, total_hours, price, img } = courses;
+  const { id, name, title, price, img } = courses;
 
   return (
     <div>
@@ -11,7 +11,7 @@ const Course = () => {
 
   <div className="container mx-auto">
 
-        <div className="mb-10 overflow-hidden rounded-lg bg-white">
+        <div className="mb-10 overflow-hidden rounded-lg ">
           <img
             src={img}
             alt="image"

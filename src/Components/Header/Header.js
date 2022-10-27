@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Bars3Icon,
   XMarkIcon,
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
-import { FaUser } from 'react-icons/fa';
+import { FaMoon, FaSun, FaUser } from 'react-icons/fa';
 
 
 import "./Header.css";
@@ -12,6 +12,24 @@ import { Link } from "react-router-dom";
 import { myContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
+ 
+
+  const Dark = <FaMoon/>
+  const Light = <FaSun />
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+
   const {user,logOut} = useContext(myContext);
   const handelLogOut = () =>{
     logOut()
@@ -96,6 +114,7 @@ const Header = () => {
             </Link>
             }
         </div>
+        <button onClick={toggleTheme}>{theme}</button>
           </div>
         </ul>
       </nav>

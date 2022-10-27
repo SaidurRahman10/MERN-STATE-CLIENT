@@ -6,10 +6,14 @@ const CourseDetails = () => {
   const courses = useLoaderData();
   const { id, name, title, rating, reviews, total_hours, price, img } = courses;
 
+  const handelClikPurchase =()=>{
+    alert("Thanks For Purchase")
+  }
+
   return (
     <div className="container mx-auto">
 
-        <div className="mb-10 overflow-hidden rounded-lg bg-white grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="mb-10 overflow-hidden rounded-lg  grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
 
           <img
@@ -28,7 +32,7 @@ const CourseDetails = () => {
             <div className="flex font-bold  mx-5 md:mx-0">{rating} <span className="flex ml-3 mt-"><FaStar /><FaStar /><FaStar /><FaStar /><FaStarHalf /></span><span>({reviews})</span></div>
             <p className="font-bold my-2 mx-5 md:mx-0">Total Hours: {total_hours} H</p>
             <h1 className="text-2xl font-extrabold  mb-3 mx-5 md:mx-0 ">Price:  ${price}</h1>
-            <button type="button" className="items-start    text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-md rounded-lg text-md px-8 py-4 text-center  mb-2 mx-5 md:mx-0">PURCHASE NOW</button>
+            <button onClick={handelClikPurchase} type="button" className="items-start    text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-md rounded-lg text-md px-8 py-4 text-center  mb-2 mx-5 md:mx-0">PURCHASE NOW</button>
             </div>
           <div className="mx-5 md:mx-0">
             <p className="text-5xl font-bolder underline my-3">Description:</p>
