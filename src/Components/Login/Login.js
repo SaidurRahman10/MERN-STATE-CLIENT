@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { myContext } from '../../AuthProvider/AuthProvider';
 import login1 from '../../img/login1.png'
 import { FaGoogle, FaGithub } from 'react-icons/fa';
@@ -13,6 +13,13 @@ const Login = () => {
 
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+
+
     const handelSubmit = (event) =>{
         event.preventDefault();
 
@@ -26,6 +33,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            navigate(from,{replace:true})
 
         })
         .catch(error=>{
@@ -70,7 +78,7 @@ const Login = () => {
 <form onSubmit={handelSubmit}>
 
 <div className="form-group mb-6">
-  <label for="exampleInputEmail1" className="form-label inline-block mb-2 text-black">Email address</label>
+  <label for="exampleInputEmail1" className="form-label inline-block mb-2 font-bold">Email address</label>
   <input name='email' type="email" className="form-control
     block
     w-full
@@ -90,7 +98,7 @@ const Login = () => {
 
 </div>
 <div className="form-group mb-6">
-  <label for="exampleInputPassword1" className="form-label inline-block mb-2 text-black">Password</label>
+  <label for="exampleInputPassword1" className="form-label inline-block mb-2 font-bold">Password</label>
   <input name='password' type="password" className="form-control block
     w-full
     px-3
@@ -120,12 +128,12 @@ const Login = () => {
  <div>
 
  </div>
- <div onClick={handelGoogleSignIn} className='flex gap-2   bg-slate-100 rounded-xl'>
+ <div onClick={handelGoogleSignIn} className='flex gap-2  border  rounded-xl'>
  <button className='flex font-bold mt-2  py-2 '> <FaGoogle className='w-10 h-8 mx-5  text-center'></FaGoogle> <h1 className='mt-1'> Sign in with Google  </h1></button>
   </div>
 <br />
 
-  <div  onClick={handelGithubSignIn} className='flex gap-2 bg-slate-100 rounded-xl '>
+  <div  onClick={handelGithubSignIn} className='flex gap-2 border rounded-xl '>
  <button className='flex font-bold mt-2 py-2  '> <FaGithub className='w-10 h-8 mx-5'></FaGithub> <h1 className='mt-1'> Sign in with Github</h1></button>
   </div>
    
@@ -133,7 +141,7 @@ const Login = () => {
 </div>
  
         <div className='flex justify-center items-center'>
-            <img className='w-[29rem]' src={login1} alt="" />
+            <img className='w-[29rem] rounded-2xl' src={login1} alt="" />
         </div>
 
        

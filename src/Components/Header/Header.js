@@ -4,24 +4,19 @@ import {
   XMarkIcon,
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
-import { FaMoon, FaSun, FaUser } from 'react-icons/fa';
-
+import { FaUser } from "react-icons/fa";
 
 import "./Header.css";
 import { Link } from "react-router-dom";
 import { myContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
- 
-
-  const Dark = <FaMoon/>
-  const Light = <FaSun />
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("Light");
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
+    if (theme === "Light") {
+      setTheme("Dark");
     } else {
-      setTheme('light');
+      setTheme("Light");
     }
   };
 
@@ -29,15 +24,12 @@ const Header = () => {
     document.body.className = theme;
   }, [theme]);
 
-
-  const {user,logOut} = useContext(myContext);
-  const handelLogOut = () =>{
+  const { user, logOut } = useContext(myContext);
+  const handelLogOut = () => {
     logOut()
-    .then(result =>{})
-    .catch(error => console.error(error))
-}
-
-
+      .then((result) => {})
+      .catch((error) => console.error(error));
+  };
 
   const [open, setOpen] = useState(false);
   return (
@@ -55,7 +47,7 @@ const Header = () => {
             open ? "top-70" : "top-[-420px]"
           } duration-500 ease-in }`}
         >
-          <div className=" hidden  md:block ">
+          <div className=" hidden   md:block ">
             <Link
               to="/"
               className="w-full font-bold text-xl sm:text-3xl block flex"
@@ -91,30 +83,45 @@ const Header = () => {
             >
               FAQ
             </Link>
-            
           </div>
           <div className="flex gap-6">
-            <div>    
-              { 
-          user?.photoURL ? 
-           <img className=" rounded-full" style={{height:'50px'}}  src={user?.photoURL} alt={user?.displayName} title={user?.displayName} />
-            :
-            <FaUser className="mt-2 w-10 h-8" title={user?.displayName}></FaUser>
-            
-
-      
-              }
-              </div>
-        <div className="mt-1">
-        { user?.uid ? 
-            <button onClick={handelLogOut} type="button" className=" hidden md:block text-black md:text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-8 py-2 text-center mr-2 mb-2">Log Out</button>
-            :
-        <Link to='/login'>
-            <button type="button" className=" hidden md:block text-black md:text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-8 py-2 text-center mr-2 mb-2">Log In</button>
-            </Link>
-            }
-        </div>
-        <button onClick={toggleTheme}>{theme}</button>
+            <div className="hidden md:block">
+              {user?.photoURL ? (
+                <img
+                  className=" rounded-full"
+                  style={{ height: "50px" }}
+                  src={user?.photoURL}
+                  alt={user?.displayName}
+                  title={user?.displayName}
+                />
+              ) : (
+                <FaUser
+                  className="mt-2 w-10 h-8"
+                  title={user?.displayName}
+                ></FaUser>
+              )}
+            </div>
+            <div className="mt-1">
+              {user?.uid ? (
+                <button
+                  onClick={handelLogOut}
+                  type="button"
+                  className=" hidden md:block text-black md:text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-8 py-2 text-center mr-2 mb-2"
+                >
+                  Log Out
+                </button>
+              ) : (
+                <Link to="/login">
+                  <button
+                    type="button"
+                    className=" hidden md:block text-black md:text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-base px-8 py-2 text-center mr-2 mb-2"
+                  >
+                    Log In
+                  </button>
+                </Link>
+              )}
+            </div>
+            <button className="font-bolder  hidden md:block rounded-full border p-2 bg-slate-400" onClick={toggleTheme}>{theme}</button>
           </div>
         </ul>
       </nav>

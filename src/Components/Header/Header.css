@@ -15,11 +15,11 @@
   background-size: 50% 3px;
   background-position: 0 100%;
 }
-.dark {
+.Dark {
   background-color: #333;
   color: #fff;
 }
-.light {
+.Light {
   background-color: #fff;
   color: #333;
 }

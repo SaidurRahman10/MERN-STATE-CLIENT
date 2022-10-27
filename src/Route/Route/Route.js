@@ -10,6 +10,7 @@ import Home from '../../Components/Home/Home';
 import Login from '../../Components/Login/Login';
 import Registration from '../../Components/Login/Registration';
 import Main from '../../layout/Main';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 
   export const route = createBrowserRouter([
@@ -19,10 +20,11 @@ import Main from '../../layout/Main';
             {path:'/courses',  
             loader:()=> fetch('https://mern-state-server.vercel.app/course'),     
             element:<Courses></Courses>,children:[
-                {path:'/courses/course/:id',loader:({params})=> fetch(`https://mern-state-server.vercel.app/course/${params.id}`) ,element:<Course></Course>}
+                {path:'/courses/course/:id',loader:({params})=> fetch(`https://mern-state-server.vercel.app/course/${params.id}`) ,
+                element:<Course></Course>}
             ]
         },
-            {path:'details/:id',loader:({params})=> fetch(`https://mern-state-server.vercel.app/course/${params.id}`), element:<CourseDetails></CourseDetails> },
+            {path:'details/:id',loader:({params})=> fetch(`https://mern-state-server.vercel.app/course/${params.id}`), element:<PrivateRoute><CourseDetails></CourseDetails> </PrivateRoute>},
             {path:'/blog',element:<Blog></Blog>},
             {path:'/faq',element:<FAQ></FAQ>},
             {path:'/login',element:<Login></Login>},
