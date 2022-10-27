@@ -1,17 +1,35 @@
 import React from "react";
+import { FaDownload } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import Pdf from "react-to-pdf";
 
+
+
+const ref = React.createRef();
 const Course = () => {
   const courses = useLoaderData();
   const { id, name, title, price, img } = courses;
+  const ref = React.createRef();
 
   return (
     <div>
      
 
-  <div className="container mx-auto">
+  <div ref={ref} className="container mx-auto">
 
         <div className="mb-10 overflow-hidden rounded-lg ">
+          <div className="mb-5 mt-2 flex  justify-center">
+            
+            <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button className="flex px-5 py-2 border rounded-2xl bg-slate-200" onClick={toPdf}>Download as a PDF <FaDownload className="ml-3 w-7 h-6"></FaDownload></button>}
+      </Pdf>
+          
+          <div>
+          <div>
+   
+</div>
+</div>
+          </div>
           <img
             src={img}
             alt="image"
@@ -27,10 +45,10 @@ const Course = () => {
               </a>
             </h3>
             <p className="text-body-color mb-7 text-base leading-relaxed">
-            {title}
+            {title.slice(0, 200)+'... Read More'}
             </p>
             <h1 className="text-2xl font-bolder underline mb-3">Price:  ${price}</h1>
-            <Link  className="text-body-color hover:border-primary hover:bg-primary inline-block rounded-full border hover:border-black py-2 px-7 text-base font-medium transition hover:bg-white bg-cyan-500 hover:text-black text-white" to={`/details/${id}`}> View Details</Link>
+            <Link  className="text-body-color hover:border-primary hover:bg-primary inline-block rounded-full border hover:border-black py-2 px-7 text-base font-medium transition hover:bg-white bg-cyan-500 hover:text-black text-white" to={`/details/${id}`}> Get Premium Access</Link>
           </div>
        
      

@@ -20,7 +20,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
             {path:'/courses',  
             loader:()=> fetch('https://mern-state-server.vercel.app/course'),     
             element:<Courses></Courses>,children:[
-                {path:'/courses/course/:id',loader:({params})=> fetch(`https://mern-state-server.vercel.app/course/${params.id}`) ,
+                {path:'/courses/course/:id',loader:({params})=> fetch(`https://mern-state-server.vercel.app/course/${params.id}`),
                 element:<Course></Course>}
             ]
         },
