@@ -31,6 +31,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
             {path:'/register',element:<Registration></Registration>}
         ]},
         {path:'*', element:<ErrorPage></ErrorPage>}
+       
     ])
        
 

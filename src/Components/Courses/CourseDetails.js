@@ -1,17 +1,31 @@
 import React from "react";
-import { FaStar, FaStarHalf } from "react-icons/fa";
+import { FaDownload, FaStar, FaStarHalf } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
+import Pdf from "react-to-pdf";
+
+
+
+const ref = React.createRef();
 
 const CourseDetails = () => {
   const courses = useLoaderData();
   const { id, name, title, rating, reviews, total_hours, price, img } = courses;
+  const ref = React.createRef();
+
 
   const handelClikPurchase =()=>{
     alert("Thanks For Purchase")
   }
 
   return (
-    <div className="container mx-auto">
+    <div ref={ref} className="container mx-auto">
+       <div className="mb-5 mt-2 flex  justify-center">
+            
+            <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button className="flex px-5 py-2 border rounded-2xl bg-slate-200" onClick={toPdf}>Download as a PDF <FaDownload className="ml-3 w-7 h-6"></FaDownload></button>}
+      </Pdf>
+          
+          </div>
 
         <div className="mb-10 overflow-hidden rounded-lg  grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
